@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel='stylesheet' href="{%static 'css/main.css' %}">
+{% block title %}FOOD COURT{% endblock title %}
+
+{% block body %}
+<!--Home section start-->
+ <section class="home" id="home-section">
+    <!--Add-->
+    <div class="add">
+    <div class="add-container">
+        <img src="{%static 'Images/banner/burger banner.jpg' %}">
+        <div class="textimg"><h2>30% off on your<br> first order</h2>
+            <a href="./ksbakers.html"><button class="ordr">Order Now</button></a></div>
+        
+        </div>
+    </div>
+    </div>
+    </section>
+<section class="barb" id="biryani">
+    
+    
+    <h1 class="barbeque">Restaurants</h1>
+    <hr class="line"> 
+    <div class="box-container">
+        {% for Restaurant in RES_name %}
+    <div class="box">
+        {% comment %} <a href="./barbeque.html"><img src="{%static 'Images/Restaurants/barbeque.jpg' %}"></a> {% endcomment %}
+        
+        <a href="{% url 'Restaurant:Restaurant_items' Restaurant.slug %}"><img  src="{{Restaurant.id}}" alt="Restaurant image" style="max-width: 100px;"></a>
+        <h3>{{Restaurant.Restaurant_name}}</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <br>
+            <p>{{Restaurant.Description}}</p>
+            <p>{{Restaurant.id}}</p>
+        </div>
+        </div>
+        {% endfor %}
+</section>
+
+
+
+{% endblock %} 
